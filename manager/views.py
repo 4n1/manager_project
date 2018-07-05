@@ -10,8 +10,8 @@ class WorkerListView(TemplateView):
     def get(self, request, *args, **kwargs):
         context = super(WorkerListView, self).get_context_data(**kwargs)
         # DBからオブジェクトを取得する。
-#        workers = Worker.objects.all()
-        workers = Worker.objects.filter(person__sex=Person.MAN)
+#        workers = Worker.objects.all().selected_related('person')
+        workers = Worker.objects.filter(person__sex=Person.MAN).select_related('person')
         # 入れ物に入れる。
         context['workers'] = workers
 
