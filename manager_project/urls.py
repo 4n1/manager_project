@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls import include, url
+# 対象のページ遷移時に認証されていないとログインを要求する。
 from django.contrib.auth.decorators import login_required
 
 import manager.views as manager_view
@@ -24,8 +25,9 @@ import manager.views as manager_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', manager_view.CustomLoginView.as_view()),
+    path('logout/', manager_view.logout_view),
     # URLとViewを組み合わせる。
-    path('worker_list/', manager_view.WorkerListView.as_view())
+    path('worker_list/', login_required(manager_view.WorkerListView.as_view()))
 ]
 
 if settings.DEBUG:
