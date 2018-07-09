@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls import include, url
+from django.contrib.auth.decorators import login_required
+
 import manager.views as manager_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/', manager_view.CustomLoginView.as_view()),
     # URLとViewを組み合わせる。
     path('worker_list/', manager_view.WorkerListView.as_view())
 ]

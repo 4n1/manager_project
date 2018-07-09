@@ -152,3 +152,10 @@ if DEBUG:
         'TAG': 'div',
         'ENABLE_STACKTRACES': True,
     }
+
+# User Authentication
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend'
+)
+
+AUTH_USER_MODEL = 'manager.Person'
