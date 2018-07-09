@@ -40,7 +40,7 @@ class CustomLoginView(TemplateView):
             login(self.request, user)
             return redirect(self.get_next_redirect_url())
         else:
-            kwargs = {'template_name', 'login.html'}
+            kwargs = {'template_name': 'login.html'}
             return login(self.request, *args, **kwargs)
 
     def get_next_redirect_url(self):
