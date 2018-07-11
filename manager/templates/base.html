@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     {% load staticfiles %}
+    {% load hijack_tags %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +17,7 @@
     <link href="{% static 'bootstrap/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
 
     <link href="{% static 'manager/css/structure.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'hijack/hijack-style.css' %}" rel="stylesheet" type="text/css">
 
     <script type="text/javascript" src="{% static 'bootstrap/vendor/jquery/jquery.min.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
@@ -35,6 +37,7 @@
     <![endif]-->
 </head>
 <body>
+    {% hijack_notification %}
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-static-top manager-nav no-margin" role="navigation">
             <div class="navbar-header">

@@ -27,7 +27,8 @@ urlpatterns = [
     path('login/', manager_view.CustomLoginView.as_view()),
     path('logout/', manager_view.logout_view),
     # URLとViewを組み合わせる。
-    path('worker_list/', login_required(manager_view.WorkerListView.as_view()))
+    path('worker_list/', login_required(manager_view.WorkerListView.as_view())),
+    path('hijack/', include('hijack.urls')),
 ]
 
 if settings.DEBUG:

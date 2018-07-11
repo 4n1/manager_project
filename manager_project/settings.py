@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ol-f2l743ph38-^te-llr(n((gw2tm+-ki8tqg924id84ee(1-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'manager',
+    'hijack',
+    'compat',
 ]
 
 MIDDLEWARE = [
@@ -159,3 +161,9 @@ AUTHENTICATION_BACKENDS = (
 )
 
 AUTH_USER_MODEL = 'manager.Person'
+
+# Hijack
+HIJACK_LOGIN_REDIRECT_URL = '/worker_list/'
+HIJACK_LOGOUT_REDIRECT_URL = '/worker_list/'
+HIJACK_ALLOW_GET_REQUESTS = True
+HIJACK_USE_BOOTSTRAP = True
